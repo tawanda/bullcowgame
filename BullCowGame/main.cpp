@@ -16,7 +16,7 @@ int main() {
 	PrintIntro();
 
 	do{
-	for (int i = NUMBER_OF_TURNS; i >= 0; i--) {
+	for (int i = NUMBER_OF_TURNS; i >= 1; i--) {
 		guess = GetPlayerGuess(i);
 	} 
 	GameOn = AskToContinue();
@@ -38,19 +38,18 @@ void PrintIntro(){
 std::string GetPlayerGuess(int count){	
 	std::string Guess = "hello";
 
-	std::cout << "You are left with [ " << count << " ] chances," << "Enter your guess >> \n";
-	std::cin.ignore(); // discard the trailing '\n'
+	std::cout << "You are left with [ " << count  << " ] chances," << "Enter your guess >> ";
 	std::getline(std::cin, Guess);
-	std::cout << "Your guess was \"" << Guess << "\"" << std::endl;
+	std::cout << "Your guess was \"" << Guess << "\"\n" << std::endl;
 
 	return Guess;
 }
 
 bool AskToContinue(){
-	char play = 'N';
+	std::string play = "N";
 
 	std::cout << "Continue Playing (Y/N)?";
-	std::cin >> play;
+	std::getline(std::cin, play);
 
-	return (play == 'y' ) || (play == 'Y');
+	return (play == "y" ) || (play == "Y");
 }
