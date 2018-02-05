@@ -262,3 +262,5 @@ __pycache__/
 
 # Visual Studio project
 *.vcxproj
+*.vcxproj.filters
+
